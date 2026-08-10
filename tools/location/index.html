@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Toolset - Location logger</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Location logger</h1>
+        <section>
+            <h2>Log new location</h2>
+            <button type="button" id="update-location">Update location</button>
+            <form>
+                <div class="input-section">
+                    <label class="input-label" for="current-location">Current location:</label>
+                    <input type="text" name="current-location" id="current-location">
+                </div>
+                <div class="input-section">
+                    <label class="input-label" for="location-description">Description:</label>
+                    <textarea name="location-description" id="location-description"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="cancel">Clear fields</button>
+                    <button type="submit">Log location</button>
+                </div>
+            </form>
+        </section>
+        <hr>
+        <section>
+            <h2>Logged location history</h2>
+            <div id="history-container">
+                
+            </div>
+        </section>
+        <script type="module" src="/storage.js"></script>
+        <script type="module" src="script.js"></script>
+    </body>
+</html>
