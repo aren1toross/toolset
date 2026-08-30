@@ -1,13 +1,15 @@
 let stored = localStorage.getItem("toolset-history");
 let currentData;
+let defaultSave = {
+    "location-history": [],
+    "general": {
+        "distance-unit": "metric"
+    }
+};
 
 loadSave();
 
 function loadSave() {
-    let defaultSave = {
-        "location-history": []
-    };
-
     let save;
     try {
         save = JSON.parse(localStorage.getItem("toolset-history"));
@@ -21,6 +23,22 @@ function loadSave() {
     } else {
         currentData = save;
     }
+}
+
+export function getGeneralSetting(name) {
+    let general = currentData["general"];
+    if (general === undefined || general[name] === undefined) {
+        return defaultSave["general"][name];
+    }
+    return general[name];
+}
+
+export function setGeneralSetting(name, value) {
+    if (currentData["general"] === undefined) {
+        currentData["general"] = {};
+    }
+    currentData["general"][name] = value;
+    localStorage.setItem("toolset-history", JSON.stringify(currentData));
 }
 
 export function getSave(name) {
