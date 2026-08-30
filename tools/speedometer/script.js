@@ -39,12 +39,12 @@ function locationWatchSuccess (pos) {
     
     let convertedSpeed = convertToPreferredUnit(speed)
     speedometerValues.currentSpeed = convertedSpeed;
-    if (speed > speedometerValues.maxSpeed) {
+    if (convertedSpeed > speedometerValues.maxSpeed) {
         speedometerValues.maxSpeed = convertedSpeed;
     }
     speedometerValues.speeds.push(convertedSpeed);
     let speedsSum = speedometerValues.speeds.reduce((acc, cur) => acc + cur, 0);
-    speedometerValues.averageSpeed = speedsSum / speedometerValues.speeds.length;
+    speedometerValues.averageSpeed = (speedsSum / speedometerValues.speeds.length).toFixed(2);
     updateText();
 }
 
