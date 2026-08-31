@@ -1,4 +1,4 @@
-import { getSave } from "../../storage.js";
+import { getGeneralSetting } from "../../storage.js";
 
 let startSpeedTracking = document.querySelector("#start-speed-tracking");
 let currentSpeedSpan = document.querySelector("#current-speed");
@@ -20,11 +20,21 @@ let geolocationOptions = {
 };
 
 function convertToPreferredUnit (speed) {
-    return Math.round(speed * 3.6);
+    let unit = getGeneralSetting("distance-unit");
+    if (unit === "metric") {
+        return Math.round(speed * 3.6);
+    } else if (unit === "imperial") {
+        return Math.round(speed * 2.237);
+    }
 }
 
 function updateText () {
-    let unit = "km/h";
+    let unit = getGeneralSetting("distance-unit");
+    if (unit === "metric") {
+        unit = "km/h";
+    } else if (unit === "imperial") {
+        unit = "mph";
+    }
     currentSpeedSpan.textContent = `${speedometerValues.currentSpeed} ${unit}`;
     maxSpeedSpan.textContent = `${speedometerValues.maxSpeed} ${unit}`;
     averageSpeedSpan.textContent = `${speedometerValues.averageSpeed} ${unit}`;
