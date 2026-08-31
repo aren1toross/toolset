@@ -15,7 +15,7 @@
                 <output name="new-location-ignore-radius-out" id="new-location-ignore-radius-out"></output>
             </div> -->
             <button type="button" id="start-tacking-distance">Start</button>
-            <button type="button" id="save-tracking-data">Save</button>
+            <button type="button" id="save-tracking-data" disabled>Save</button>
 
             <p><b>Started from:</b> <span id="start-location"></span></p>
             <p><b>Currently at:</b> <span id="current-location"></span></p>
@@ -29,6 +29,9 @@
         <hr>
         <section>
             <h2>Saved measurements</h2>
+            <div id="history-container">
+
+            </div>
         </section>
 
         <script type="module" src="script.js"></script>
