@@ -2,6 +2,7 @@ let stored = localStorage.getItem("toolset-history");
 let currentData;
 let defaultSave = {
     "location-history": [],
+    "distance-history": [],
     "general": {
         "distance-unit": "metric"
     }
