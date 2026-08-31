@@ -57,6 +57,7 @@ function resetValues() {
     distanceValues.currentlyAt = [];
     distanceValues.distanceSinceStart = 0;
     distanceValues.previousPoints = [];
+    previousPointsListElem.innerHTML = "";
     distanceValues.startTime = 0;
 }
 
